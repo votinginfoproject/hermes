@@ -9,4 +9,5 @@
                  [turbovote.resource-config "0.1.2-SNAPSHOT"]
                  [turbovote.aws-toolbox "0.0.1"]
                  [clj-http "0.9.1"]]
-  :profiles {:dev {:resource-paths ["dev-resources"]}})
+  :profiles {:dev {:resource-paths ["dev-resources"]}}
+  :main ^{:skip-aot true} hermes-processor.core)
