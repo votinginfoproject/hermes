@@ -7,7 +7,7 @@
                  [org.clojure/tools.logging "0.2.6"]
                  [org.slf4j/slf4j-simple "1.7.6"]
                  [turbovote.resource-config "0.1.2-SNAPSHOT"]
-                 [turbovote.aws-toolbox "0.0.1"]
+                 [democracyworks.squishy "1.0.0-SNAPSHOT"]
                  [clj-http "0.9.1"]]
   :profiles {:dev {:resource-paths ["dev-resources"]}}
   :main ^{:skip-aot true} hermes-processor.core)

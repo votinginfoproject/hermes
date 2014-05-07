@@ -1,6 +1,5 @@
 (ns hermes-processor.core
-  (:require [turbovote.aws-toolbox.data_readers]
-            [turbovote.aws-toolbox.sqs :as sqs]
+  (:require [democracyworks.squishy :as sqs]
             [turbovote.resource-config :refer [config]]
             [clj-http.client :as client]
             [clj-http.cookies :as cookies]
@@ -22,13 +21,13 @@
                   :form-params {:filename filename
                                 :s3Bucket bucket}})))
 
+(defn process-file [message]
+  (-> message
+      clojure.edn/read-string
+      (#(vec (map % [:bucket :filename])))
+      (#(apply notify-metis %))))
+
 (defn -main [& args]
   (info "Starting up...")
-  (let [access-key (config :aws :creds :access-key)
-        secret-key (config :aws :creds :secret-key)
-        region (config :aws :sqs :region)
-        client (sqs/client access-key secret-key region)
-        queue (config :aws :sqs :queue)
-        fail-queue (config :aws :sqs :fail-queue)]
-    (sqs/consume-messages client notify-metis queue fail-queue))
+  (sqs/consume-messages (sqs/client) process-file)
   (info "Started"))
