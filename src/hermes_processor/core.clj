@@ -12,15 +12,15 @@
         login-url (config :metis :login-url)]
     (client/post login-url {:form-params params})))
 
-(defn notify-metis [message]
-  (let [session-cookie (-> login
+(defn notify-metis [bucket filename]
+  (let [session-cookie (-> (login)
                            :cookies
                            (select-keys ["connect.sid"]))
-        filename (:body message)
         feed-url (config :metis :feed-url)]
     (client/post feed-url
                  {:cookies session-cookie
-                  :form-params {:filename filename}})))
+                  :form-params {:filename filename
+                                :s3Bucket bucket}})))
 
 (defn -main [& args]
   (info "Starting up...")
