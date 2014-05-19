@@ -9,5 +9,6 @@
                  [turbovote.resource-config "0.1.2-SNAPSHOT"]
                  [democracyworks.squishy "1.0.0"]
                  [clj-http "0.9.1"]]
-  :profiles {:dev {:resource-paths ["dev-resources"]}}
+  :profiles {:dev {:resource-paths ["dev-resources"]}
+             :production {:resource-paths ["env-configs/hermes-processor/production/resources"]}}
   :main ^{:skip-aot true} hermes-processor.core)
