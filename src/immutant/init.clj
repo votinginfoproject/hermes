@@ -1,13 +1,13 @@
 (ns immutant.init
   (:require [immutant.daemons :as daemon]
-            [hermes-processor.core :as hermes-processor]))
+            [hermes.core :as hermes]))
 
 (def messages-future (atom nil))
 
 (defn start []
-  (reset! messages-future (hermes-processor/-main)))
+  (reset! messages-future (hermes/-main)))
 
 (defn stop []
   (swap! messages-future (fn [f] (when f (future-cancel f)))))
 
-(daemon/daemonize "hermes-processor.importer" start stop :singleton false)
+(daemon/daemonize "hermes.importer" start stop :singleton false)

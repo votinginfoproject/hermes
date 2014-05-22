@@ -1,11 +1,11 @@
 FROM quay.io/democracyworks/clojure-api-build:latest
 
-ADD ./ /hermes-processor/
+ADD ./ /hermes/
 
-WORKDIR /hermes-processor
+WORKDIR /hermes
 
-VOLUME ["/servers/hermes-processor/"]
+VOLUME ["/servers/hermes/"]
 
-ADD resources/immutant/hermes-processor.clj /servers/hermes-processor/
+ADD resources/immutant/hermes.clj /servers/hermes/
 
 CMD ["script/build-ima"]

@@ -1,4 +1,4 @@
-(ns hermes-processor.core
+(ns hermes.core
   (:require [democracyworks.squishy :as sqs]
             [turbovote.resource-config :refer [config]]
             [clj-http.client :as client]

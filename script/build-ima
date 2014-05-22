@@ -11,4 +11,4 @@ fi
 
 lein with-profiles $ENVIRONMENT immutant archive
 
-cp target/hermes-processor.ima /servers/hermes-processor/
+cp target/hermes.ima /servers/hermes/

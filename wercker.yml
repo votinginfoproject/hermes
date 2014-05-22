@@ -27,11 +27,11 @@ build:
     - script:
         name: build the container
         code: |
-          docker build -t quay.io/democracyworks/hermes-processor:$IMAGE_TAG .
+          docker build -t quay.io/democracyworks/hermes:$IMAGE_TAG .
     - script:
         name: run tests
         code: |
-          docker run quay.io/democracyworks/hermes-processor:$IMAGE_TAG lein test
+          docker run quay.io/democracyworks/hermes:$IMAGE_TAG lein test
     - script:
         name: login to quay.io
         hide-from-log: true
@@ -40,7 +40,7 @@ build:
     - script:
         name: push the container to the private registry
         code: |
-          docker push quay.io/democracyworks/hermes-processor
+          docker push quay.io/democracyworks/hermes
 deploy:
   steps:
     - add-to-known_hosts:
@@ -67,6 +67,6 @@ deploy:
     - script:
         name: run new containers
         code: |
-          ssh -i $PRIVATEKEY_PATH -o "StrictHostKeyChecking no" -p 2222 deploy@localhost "docker pull quay.io/democracyworks/hermes-processor && docker run -e ENVIRONMENT=$DEPLOY_ENVIRONMENT quay.io/democracyworks/hermes-processor:$IMAGE_TAG"
-          ssh -i $PRIVATEKEY_PATH -o "StrictHostKeyChecking no" -p 2223 deploy@localhost "docker pull quay.io/democracyworks/hermes-processor && docker run -e ENVIRONMENT=$DEPLOY_ENVIRONMENT quay.io/democracyworks/hermes-processor:$IMAGE_TAG"
+          ssh -i $PRIVATEKEY_PATH -o "StrictHostKeyChecking no" -p 2222 deploy@localhost "docker pull quay.io/democracyworks/hermes && docker run -e ENVIRONMENT=$DEPLOY_ENVIRONMENT quay.io/democracyworks/hermes:$IMAGE_TAG"
+          ssh -i $PRIVATEKEY_PATH -o "StrictHostKeyChecking no" -p 2223 deploy@localhost "docker pull quay.io/democracyworks/hermes && docker run -e ENVIRONMENT=$DEPLOY_ENVIRONMENT quay.io/democracyworks/hermes:$IMAGE_TAG"
     - cmshea/immutant-deploy@0.0.13
