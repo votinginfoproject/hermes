@@ -24,7 +24,6 @@ The valid values for `:aws :sqs :region` are the enum values listed in the API d
                                                                    
 ## License
 
-Copyright © 2014 Democracy Works, Inc.
+Copyright © 2014, The Pew Charitable Trusts
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the BSD 3-clause License. See LICENSE file for details.
