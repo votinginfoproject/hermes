@@ -1,4 +1,4 @@
-# hermes-processor
+# hermes
 
 Processes queue messages from s3-ftp, and sends file information to Metis.
 
