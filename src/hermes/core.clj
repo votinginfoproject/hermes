@@ -23,6 +23,7 @@
 
 (defn process-file [message]
   (-> message
+      :body
       clojure.edn/read-string
       (#(vec (map % [:bucket :filename])))
       (#(apply notify-metis %))))
