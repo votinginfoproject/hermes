@@ -19,9 +19,21 @@ following shape:
          :username "hermes-username"
          :password "hermes-password"}
 ```
-                                          
+
 The valid values for `:aws :sqs :region` are the enum values listed in the API documentation for [com.amazonaws.regions.Regions](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html)
-                                                                   
+
+## Running in Docker
+
+### Setup
+
+1. Check out [immutant-docker][immutant-docker] in a sibling directory to Hermes.
+1. If you've never done it, run `./script/build-dev` in the
+   immutant-docker directory.
+
+Then you can run `./script/docker-run` from this project's root whenever you like.
+
+[immutant-docker]: https://github.com/turbovote/immutant-docker
+
 ## License
 
 Copyright © 2014, The Pew Charitable Trusts

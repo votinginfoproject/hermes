@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+../immutant-docker/script/build-subproject ${PWD##*/} ${1:-dev}
