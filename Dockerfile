@@ -1,8 +1,11 @@
 FROM quay.io/democracyworks/clojure-api-build:latest
 
-ADD ./ /hermes/
-
+# cache dependencies if project.clj hasn't changed
+ADD ./project.clj /hermes/project.clj
 WORKDIR /hermes
+RUN lein deps
+
+ADD ./ /hermes/
 
 VOLUME ["/servers/hermes/"]
 
