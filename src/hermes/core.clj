@@ -18,8 +18,8 @@
         feed-url (config :metis :feed-url)]
     (client/post feed-url
                  {:cookies session-cookie
-                  :form-params {:filename filename
-                                :s3Bucket bucket}})))
+                  :form-params {:filenames filename
+                                :s3bucket bucket}})))
 
 (defn process-file [message]
   (-> message
