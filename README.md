@@ -14,7 +14,7 @@ following shape:
              :queue "your-sqs-queue"
              :fail-queue "your-sqs-failure-queue"}}
  :metis {:login-url "http://metis.votinginfoproject.org/login"
-         :feed-url "http://metis.votinginfoproject.org/feeds"
+         :feed-url "http://metis.votinginfoproject.org/services/feeds"
          :username "hermes-username"
          :password "hermes-password"}}
 ```
