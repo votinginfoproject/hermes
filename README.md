@@ -1,6 +1,6 @@
 # hermes
 
-Processes queue messages from s3-ftp, and sends file information to Metis.
+Processes queue messages from [s3-ftp](https://github.com/turbovote/s3-ftp), and sends file information to Metis.
 
 ## Setup
 
