@@ -23,15 +23,13 @@ The valid values for `:aws :sqs :region` are the enum values listed in the API d
 
 ## Running in Docker
 
-### Setup
+```sh
+docker build -t hermes .
+```
 
-1. Check out [immutant-docker][immutant-docker] in a sibling directory to Hermes.
-1. If you've never done it, run `./script/build-dev` in the
-   immutant-docker directory.
-
-Then you can run `./script/docker-run` from this project's root whenever you like.
-
-[immutant-docker]: https://github.com/turbovote/immutant-docker
+```sh
+docker run -v /path/to/config-dir:/hermes/resources hermes
+```
 
 ## License
 

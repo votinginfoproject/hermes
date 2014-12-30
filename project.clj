@@ -10,6 +10,5 @@
                  [democracyworks.squishy "1.0.0"]
                  [clj-http "0.9.1"]]
   :plugins [[lein-immutant "1.2.0"]]
-  :profiles {:dev {:resource-paths ["dev-resources"]}
-             :production {:resource-paths ["env-configs/hermes/production/resources"]}}
+  :profiles {:dev {:resource-paths ["dev-resources"]}}
   :main ^{:skip-aot true} hermes.core)
